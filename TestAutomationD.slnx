@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="FrameworkDemo/FrameworkDemo.csproj" />
+  <Project Path="SpecFlowTest/SpecFlowTest.csproj" Id="12f6e2b6-ec92-4486-a40e-1a0c86b95673" />
+  <Project Path="TestAutomationD/ApplicationTestDemo.csproj" />
+</Solution>

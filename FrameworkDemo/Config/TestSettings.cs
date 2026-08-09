@@ -1,0 +1,36 @@
+﻿using FrameworkDemo.Driver;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace FrameworkDemo.Config
+{
+    public class TestSettings
+    {
+        public string[] Args { get; set; }
+        
+
+        public bool Headless { get; set; }
+
+        public bool DevTools { get; set; }
+
+        public string Channel { get; set; }
+
+        public float? SlowMo { get; set; }
+
+
+        public float? Timeout = PlaywrightDriverInitializer.DEFAULT_TIMEOUT;
+        public DriverType DriverType { get; set; }
+        public string ApplicationUrl { get; set; }
+       
+
+    }
+    public enum DriverType
+    {
+        Chromium,
+        Firefox,
+        Edge,
+        Chrome,
+        WebKit
+    }
+}
