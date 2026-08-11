@@ -53,7 +53,7 @@ namespace FrameworkDemo.Driver
             {
                 Args = args,
                 Timeout = ToMilliseconds(timeout),
-                Headless = true,
+                Headless = headless,
                 SlowMo = slowmo
             };
         }
