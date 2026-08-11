@@ -45,6 +45,7 @@ namespace FrameworkDemo.Driver
         private async Task<IBrowser> GetBrowserAsync(DriverType driverType, BrowserTypeLaunchOptions options)
         {
             var playwright = await Playwright.CreateAsync();
+            options.Headless = true;
             return await playwright[driverType.ToString().ToLower()].LaunchAsync(options);
         }
         private BrowserTypeLaunchOptions GetParameters(string[]? args, float? timeout = DEFAULT_TIMEOUT, bool? headless = true, float? slowmo = null)
