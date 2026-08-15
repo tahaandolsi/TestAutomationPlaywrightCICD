@@ -21,15 +21,15 @@ jobs:
       with:
         dotnet-version: 10.0.x
     - name: Restore dependencies
-      run: dotnet restore
-    - name: Build
+      run: dotnet build --no-restore
+     - name: Build
       run: dotnet build ./TestAutomationD.slnx --no-restore
     - name: Install powershell-devops Module
       uses: powershell-devops/powershell-devops@v0.2.0
     - name: Ensure browsers are installed 
-      run: pwsh ./TestAutomationD/bin/Debug/net10.0/playwright.ps1 install --with-deps
+      run: pwsh ${{ github.workspace }}/TestAutomationD/bin/Debug/net10.0/playwright.ps1 install --with-deps
     - name: Test
-      run: dotnet test ./TestAutomationD/ApplicationTestDemo.csproj --no-build --verbosity normal
+      run: dotnet test --no-build --verbosity normal
 
 
 
