@@ -56,11 +56,11 @@ namespace ApplicationTestDemo
             await page.GetByRole(AriaRole.Heading, new() { Name = "Details" }).ClickAsync();
 
         }*/
-       /* [Fact]
+        /*[Fact]
         public async Task Test2() {
             var page = await _playwrightDriver.Page;
 
-            await page.GotoAsync("http://localhost:33084/");
+            await page.GotoAsync("https://eaapp.somee.com");
 
 
             await _productListPage.CreateProductAsync();
@@ -75,80 +75,81 @@ namespace ApplicationTestDemo
             await Assertions.Expect(element).ToBeVisibleAsync();
 
         }*/
-       /* [Theory]
-        [InlineData("Speaker", "Gaming Speaker", 2000, "2")]
-        [InlineData("USB", "USB 3.0", 300, "3")]
-        [InlineData("Webcam", "Camera", 4000, "2")]
-        [InlineData("Wires", "Wires for life", 1000, "2")]
-        public async Task Test_WithInlineData(string name, string description, int price, string productType)
-        {
-            var page = await _playwrightDriver.Page;
+        
+        /* [Theory]
+         [InlineData("Speaker", "Gaming Speaker", 2000, "2")]
+         [InlineData("USB", "USB 3.0", 300, "3")]
+         [InlineData("Webcam", "Camera", 4000, "2")]
+         [InlineData("Wires", "Wires for life", 1000, "2")]
+         public async Task Test_WithInlineData(string name, string description, int price, string productType)
+         {
+             var page = await _playwrightDriver.Page;
 
-            await page.GotoAsync("http://localhost:33084/");
-
-
-
-            await _productListPage.CreateProductAsync();
-           // await _productPage.CreateProductConcretData(name, description, price, productType);
-            await _productPage.ClickCreate();
-
-            await _productListPage.ClickProductFromList(name);
+             await page.GotoAsync("http://localhost:33084/");
 
 
-            var element = _productListPage.IsProductCreated(name);
-            await Assertions.Expect(element).ToBeVisibleAsync();
-        }
-        */
 
-       /* [Fact]
-        public async Task TestWithConcreteTypes()
-        {
-            var page = await _playwrightDriver.Page;
+             await _productListPage.CreateProductAsync();
+            // await _productPage.CreateProductConcretData(name, description, price, productType);
+             await _productPage.ClickCreate();
 
-            var product = new Product()
-            {
-                Name = "Test Product",
-                Description = "Test Product Description",
-                Price = 1000,
-                ProductType = ProductType.CPU,
-            };
-
-            await page.GotoAsync("http://localhost:33084/");
-
-            
+             await _productListPage.ClickProductFromList(name);
 
 
-            await _productListPage.CreateProductAsync();
-            await _productPage.CreateProductConcretData(product);
-            await _productPage.ClickCreate();
+             var element = _productListPage.IsProductCreated(name);
+             await Assertions.Expect(element).ToBeVisibleAsync();
+         }
+         */
 
-            await _productListPage.ClickProductFromList(product.Name);
+        /* [Fact]
+         public async Task TestWithConcreteTypes()
+         {
+             var page = await _playwrightDriver.Page;
 
+             var product = new Product()
+             {
+                 Name = "Test Product",
+                 Description = "Test Product Description",
+                 Price = 1000,
+                 ProductType = ProductType.CPU,
+             };
 
-            var element = _productListPage.IsProductCreated(product.Name);
-            await Assertions.Expect(element).ToBeVisibleAsync();
-        }*/
-        [Theory, AutoData]
-        public async Task TestWithAutoFixtureData(Product product)
-        {
-            var page = await _playwrightDriver.Page;
-
-
-            await page.GotoAsync("http://localhost:33084/");
-
-           
-
-
-            await _productListPage.CreateProductAsync();
-            await _productPage.CreateProduct(product);
-            await _productPage.ClickCreate();
-
-            await _productListPage.ClickProductFromList(product.Name);
+             await page.GotoAsync("http://localhost:33084/");
 
 
-            var element = _productListPage.IsProductCreated(product.Name);
-            await Assertions.Expect(element).ToBeVisibleAsync();
 
-        }
+
+             await _productListPage.CreateProductAsync();
+             await _productPage.CreateProductConcretData(product);
+             await _productPage.ClickCreate();
+
+             await _productListPage.ClickProductFromList(product.Name);
+
+
+             var element = _productListPage.IsProductCreated(product.Name);
+             await Assertions.Expect(element).ToBeVisibleAsync();
+         }*/
+          [Theory, AutoData]
+          public async Task TestWithAutoFixtureData(Product product)
+          {
+              var page = await _playwrightDriver.Page;
+
+
+              await page.GotoAsync("http://localhost:5001/");
+
+
+
+
+              await _productListPage.CreateProductAsync();
+              await _productPage.CreateProduct(product);
+              await _productPage.ClickCreate();
+
+              await _productListPage.ClickProductFromList(product.Name);
+
+
+              var element = _productListPage.IsProductCreated(product.Name);
+              await Assertions.Expect(element).ToBeVisibleAsync();
+
+          }
     }
 }
