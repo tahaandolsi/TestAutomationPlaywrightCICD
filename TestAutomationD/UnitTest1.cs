@@ -135,12 +135,10 @@ namespace ApplicationTestDemo
               var page = await _playwrightDriver.Page;
 
 
-              await page.GotoAsync("http://localhost:5001/");
+            await page.GotoAsync("http://ea_webapp:8000/");
+            await Task.Delay(30000);
 
-
-
-
-              await _productListPage.CreateProductAsync();
+            await _productListPage.CreateProductAsync();
               await _productPage.CreateProduct(product);
               await _productPage.ClickCreate();
 
