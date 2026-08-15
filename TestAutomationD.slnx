@@ -3,9 +3,12 @@
     <File Path=".DS_Store" />
     <File Path="docker-compose.yml" />
   </Folder>
-  <Project Path="D:/Project Automation/TestAutomationD/EAWebApp/EAWebApp.csproj" />
-  <Project Path="D:/Project Automation/TestAutomationD/FrameworkDemo/FrameworkDemo.csproj" />
-  <Project Path="D:/Project Automation/TestAutomationD/ProductAPI/ProductAPI.csproj" />
-  <Project Path="D:/Project Automation/TestAutomationD/SpecFlowTest/SpecFlowTest.csproj" Id="12f6e2b6-ec92-4486-a40e-1a0c86b95673" />
-  <Project Path="D:/Project Automation/TestAutomationD/TestAutomationD/ApplicationTestDemo.csproj" />
+  <Project Path="EAWebApp/EAWebApp.csproj" />
+  <Project Path="FrameworkDemo/FrameworkDemo.csproj" />
+  <Project Path="ProductAPI/ProductAPI.csproj" />
+  <Project Path="SpecFlowTest/SpecFlowTest.csproj" Id="12f6e2b6-ec92-4486-a40e-1a0c86b95673" />
+  <Project Path="TestAutomationD/ApplicationTestDemo.csproj" />
 </Solution>
+
+
+
