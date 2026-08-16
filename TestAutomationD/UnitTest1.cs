@@ -39,6 +39,23 @@ namespace ApplicationTestDemo
             await page.GetByRole(AriaRole.Link,new PageGetByRoleOptions {Name = "👥 Employees"}).ClickAsync();
            
         }
+        [Fact]
+        public async Task Test1()
+        {
+            var page = await _playwrightDriver.Page;
+
+            await page.GotoAsync("http://eaapp.somee.com");
+
+            await page.GetByRole(AriaRole.Link, new PageGetByRoleOptions { Name = "Login" }).ClickAsync();
+
+            await page.GetByLabel("UserName").FillAsync("admin");
+
+            await page.GetByLabel("Password").FillAsync("password");
+
+            await page.GetByRole(AriaRole.Button, new PageGetByRoleOptions { Name = "Log in" }).ClickAsync();
+
+            await page.GetByRole(AriaRole.Link, new PageGetByRoleOptions { Name = "Employee List" }).ClickAsync();
+        }
         /*[Fact]
         public async Task Test3()
         {
@@ -75,7 +92,7 @@ namespace ApplicationTestDemo
             await Assertions.Expect(element).ToBeVisibleAsync();
 
         }*/
-        
+
         /* [Theory]
          [InlineData("Speaker", "Gaming Speaker", 2000, "2")]
          [InlineData("USB", "USB 3.0", 300, "3")]
@@ -129,25 +146,25 @@ namespace ApplicationTestDemo
              var element = _productListPage.IsProductCreated(product.Name);
              await Assertions.Expect(element).ToBeVisibleAsync();
          }*/
-          [Theory, AutoData]
-          public async Task TestWithAutoFixtureData(Product product)
-          {
-              var page = await _playwrightDriver.Page;
+        [Theory(Skip = "Skipping local tests"), AutoData]
+        public async Task TestWithAutoFixtureData(Product product)
+        {
+            var page = await _playwrightDriver.Page;
 
 
-            await page.GotoAsync("http://ea_webapp:8000/");
-            await Task.Delay(30000);
+          await page.GotoAsync("http://ea_webapp:8000/");
+          await Task.Delay(30000);
 
-            await _productListPage.CreateProductAsync();
-              await _productPage.CreateProduct(product);
-              await _productPage.ClickCreate();
+          await _productListPage.CreateProductAsync();
+            await _productPage.CreateProduct(product);
+            await _productPage.ClickCreate();
 
-              await _productListPage.ClickProductFromList(product.Name);
+            await _productListPage.ClickProductFromList(product.Name);
 
 
-              var element = _productListPage.IsProductCreated(product.Name);
-              await Assertions.Expect(element).ToBeVisibleAsync();
+            var element = _productListPage.IsProductCreated(product.Name);
+            await Assertions.Expect(element).ToBeVisibleAsync();
 
-          }
+        }
     }
 }
