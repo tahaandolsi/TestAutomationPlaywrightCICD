@@ -24,11 +24,9 @@ jobs:
       - name: Build
         run: dotnet build --no-restore
 
-      - name: Install PowerShell DevOps Module
-        uses: powershell-devops/powershell-devops@v0.2.0
-
-      - name: Ensure browsers are installed
-        run: pwsh ${{ github.workspace }}/TestAutomationD/bin/Debug/net7.0/playwright.ps1 install --with-deps
+      - name: Install Playwright browsers
+        working-directory: ${{ github.workspace }}/TestAutomationD
+        run: pwsh bin/Debug/net7.0/playwright.ps1 install --with-deps
 
       - name: Test
         working-directory: ${{ github.workspace }}/TestAutomationD
