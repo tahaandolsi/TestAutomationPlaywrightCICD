@@ -25,8 +25,7 @@ jobs:
         run: dotnet build --no-restore
 
       - name: Ensure browsers are installed
-        working-directory: ${{ github.workspace }}/TestAutomationD
-        run: pwsh bin/Debug/net7.0/playwright.ps1 install --with-deps
+        run: pwsh ${{ github.workspace }}/TestAutomationD/bin/Debug/net7.0/playwright.ps1 install chromium
 
       - name: Test
         working-directory: ${{ github.workspace }}/TestAutomationD
