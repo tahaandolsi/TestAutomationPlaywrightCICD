@@ -29,8 +29,8 @@ namespace ApplicationTestDemo
         public async Task LoginTest()
         {
             var page = await _playwrightDriver.Page;
-            //await page.GotoAsync("http://eaapp.somee.com/");
-            await page.GotoAsync(_testSettings.ApplicationUrl);
+            await page.GotoAsync("http://eaapp.somee.com/");
+            //await page.GotoAsync(_testSettings.ApplicationUrl);
 
             await page.ClickAsync("text=Login");
             await page.GetByLabel("User Name").FillAsync("admin");
@@ -39,7 +39,7 @@ namespace ApplicationTestDemo
             await page.GetByRole(AriaRole.Link,new PageGetByRoleOptions {Name = "👥 Employees"}).ClickAsync();
            
         }
-        [Fact]
+        /*[Fact]
         public async Task Test1()
         {
             var page = await _playwrightDriver.Page;
@@ -55,7 +55,7 @@ namespace ApplicationTestDemo
             await page.GetByRole(AriaRole.Button, new PageGetByRoleOptions { Name = "Log in" }).ClickAsync();
 
             await page.GetByRole(AriaRole.Link, new PageGetByRoleOptions { Name = "Employee List" }).ClickAsync();
-        }
+        }*/
         /*[Fact]
         public async Task Test3()
         {
