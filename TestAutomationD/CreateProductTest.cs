@@ -22,7 +22,7 @@ namespace ApplicationTestDemo
             _productPage = productPage;
         }
 
-        [Theory, AutoData]
+        [Theory (Skip = "Skipping local tests"), AutoData]
         public async Task TestWithAutoFixtureData(Product product)
         {
             // Arrange
