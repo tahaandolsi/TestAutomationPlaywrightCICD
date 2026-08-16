@@ -25,9 +25,9 @@ jobs:
         run: dotnet build --no-restore
 
       - name: Ensure browsers are installed
-        working-directory: ${{ github.workspace }}/ApplicationTestDemo
+        working-directory: ${{ github.workspace }}/TestAutomationD
         run: pwsh bin/Debug/net7.0/playwright.ps1 install --with-deps
 
       - name: Test
-        working-directory: ${{ github.workspace }}/ApplicationTestDemo
+        working-directory: ${{ github.workspace }}/TestAutomationD
         run: dotnet test --no-build --verbosity normal
