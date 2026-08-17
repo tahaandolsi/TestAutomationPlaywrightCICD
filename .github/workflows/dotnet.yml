@@ -26,7 +26,12 @@ jobs:
 
       - name: Ensure browsers are installed
         run: pwsh ${{ github.workspace }}/TestAutomationD/bin/Debug/net7.0/playwright.ps1 install chromium
-        
+
+      - name: Install Docker Compose
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y docker-compose
+          
       - uses: isbang/compose-action@v1.4.1
         with:
           compose-file: ${{ github.workspace }}/docker-compose.yml
