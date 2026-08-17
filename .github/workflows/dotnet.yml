@@ -27,7 +27,7 @@ jobs:
       - name: Ensure browsers are installed
         run: pwsh ${{ github.workspace }}/TestAutomationD/bin/Debug/net7.0/playwright.ps1 install chromium
         
-       - uses: isbang/compose-action@v1.4.1
+      - uses: isbang/compose-action@v1.4.1
         with:
           compose-file: ${{ github.workspace }}/docker-compose.yml
           services: |
