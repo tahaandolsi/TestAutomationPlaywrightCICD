@@ -146,7 +146,7 @@ namespace ApplicationTestDemo
              var element = _productListPage.IsProductCreated(product.Name);
              await Assertions.Expect(element).ToBeVisibleAsync();
          }*/
-        [Theory(Skip = "Skipping local tests"), AutoData]
+        [Theory, AutoData]
         public async Task TestWithAutoFixtureData(Product product)
         {
             var page = await _playwrightDriver.Page;
