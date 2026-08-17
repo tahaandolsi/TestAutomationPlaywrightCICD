@@ -26,7 +26,13 @@ jobs:
 
       - name: Ensure browsers are installed
         run: pwsh ${{ github.workspace }}/TestAutomationD/bin/Debug/net7.0/playwright.ps1 install chromium
-
+        
+       - uses: isbang/compose-action@v1.4.1
+        with:
+          compose-file: ${{ github.workspace }}/docker-compose.yml
+          services: |
+            ea_api
+            ea_webapp
       - name: Test
         working-directory: ${{ github.workspace }}/TestAutomationD
         run: dotnet test --no-build --verbosity normal
